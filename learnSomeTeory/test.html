@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    /*У слова async один простой смысл: эта функция всегда возвращает промис. 
+    Значения других типов оборачиваются в завершившийся успешно промис автоматически. 
+    Ключевое слово await заставит интерпретатор JavaScript ждать до тех пор, 
+    пока промис справа от await не выполнится. После чего оно вернёт его результат, 
+    и выполнение кода продолжится.
+
+
+    коллбэк — это функция, которая должна быть выполнена после того, 
+    как другая функция завершила выполнение (отсюда и название: callback – функция обратного вызова).
+
+    reject - отклонить
+    */
+
+// async function f() {
+
+// let promise = new Promise((resolve, reject) => {
+//   setTimeout(() => resolve("готово!"), 2000)
+// });
+
+// let result = await promise; // будет ждать, пока промис не выполнится (*)
+
+// console.log(result); 
+// }
+
+// f();
+
+// let promise = new Promise((resolve, reject) => {
+
+// // через 1 секунду готов результат: result
+// setTimeout(() => resolve("result"), 2000);
+
+// // через 2 секунды — reject с ошибкой, он будет проигнорирован
+// setTimeout(() => reject(new Error("ignored")), 1000);
+
+// });
+
+// promise
+// .then(
+//   result => alert("Fulfilled: " + result), // сработает
+//   error => alert("Rejected: " + error) // не сработает
+// );
+
+let prom = new Promise( (res, rej) => {
+  setTimeout(()=>{res('Ура пошло поехало')},2000)
+  setTimeout(()=>{rej('Блин error какой то')},1000)
+  } )
+
+  prom.then(
+  result=>console.log(result),
+  error => console.log(error)
+
+  )
+
+/*<Route exact path="/links" element={<PrivateRoute/>}>
+<Route exact path='/' element={<LinksPage />}/>
+                </Route> */
+
+  // "start": "node app.js"
+  </script>
+</body>
+</html>
